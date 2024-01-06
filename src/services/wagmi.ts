@@ -1,33 +1,46 @@
 "use client";
 
 import { getDefaultWallets } from "@rainbow-me/rainbowkit";
-import { configureChains, createConfig } from "wagmi";
+import dotenv from "dotenv";
+import { configureChains, createConfig, sepolia } from "wagmi";
 import {
+  arbitrum,
+  arbitrumSepolia,
+  base,
+  celo,
+  celoAlfajores,
+  mainnet,
+  optimism,
+  optimismSepolia,
+  polygon,
+  scroll,
+  scrollSepolia,
+} from "wagmi/chains";
+import { alchemyProvider } from "wagmi/providers/alchemy";
+import { infuraProvider } from "wagmi/providers/infura";
+import { publicProvider } from "wagmi/providers/public";
+
+dotenv.config();
+
+// Test Networks
+const stagingChains = [
+  sepolia,
+  arbitrumSepolia,
+  optimismSepolia,
+  celoAlfajores,
+  scrollSepolia,
+];
+
+// Main Networks
+const productionChains = [
   arbitrum,
   base,
   celo,
-  goerli,
   mainnet,
+  polygon,
   optimism,
-  polygon
-} from "wagmi/chains";
-import { publicProvider } from "wagmi/providers/public";
-
-import { alchemyProvider } from "wagmi/providers/alchemy";
-import { infuraProvider } from "wagmi/providers/infura";
-
-import dotenv from "dotenv";
-dotenv.config();
-
-const stagingChains = [
-  // celoAlfajores,
-  goerli,
-  // sepolia,
-  // polygonMumbai,
-  // arbitrumGoerli,
+  scroll,
 ];
-
-const productionChains = [arbitrum, base, celo, mainnet, polygon, optimism];
 
 const availableChains =
   process.env.NEXT_PUBLIC_ENVIRONMENT === "dev"
@@ -47,7 +60,7 @@ const { chains, publicClient } = configureChains(
         (process.env.INFURA_ID as string) || "ae484befdd004b64bfe2059d3526a138",
     }),
     publicProvider(),
-  ],
+  ]
 );
 
 const { connectors } = getDefaultWallets({
@@ -72,4 +85,4 @@ export const getChain = (chainId: number) => {
   }
 
   throw new Error(`Chain with id ${chainId} not found`);
-}
+};

@@ -1,4 +1,7 @@
-# 🌊 Allo SeaGrants
+# HelloGrants
+
+![CI](https://github.com/allo-protocol/actions/workflows/WORKFLOW-FILE/badge.svg)
+
 
 ## Getting Started
 
@@ -14,6 +17,8 @@ This is a grants application for Allo. It is built using
 
 Required
 ```
+
+
 NEXT_PUBLIC_IPFS_READ_GATEWAY=
 NEXT_PUBLIC_PINATA_JWT=
 NEXT_PUBLIC_IPFS_READ_GATEWAY=
