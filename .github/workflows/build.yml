@@ -2,9 +2,15 @@ name: HelloGrants Build
 run-name: ${{ github.actor }} just pushed some code 🚀
 on:
   push:
-    branches: [$default-branch]
+    branches:
+      - main
+      - develop
+      - 'release/**'
   pull_request:
-    branches: [$default-branch]
+    branches:
+      - main
+      - develop
+      - 'release/**'
 jobs:
   HelloGrants-Build:
     runs-on: ubuntu-latest
