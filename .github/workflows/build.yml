@@ -1,11 +1,11 @@
-name: HelloGrants Build
+name: HelloGrants
 run-name: ${{ github.actor }} just pushed some code 🚀
 on:
   push:
     branches:
-      - main
       - develop
-      - 'release/**'
+      - 'feature/**'
+      - 'fix/**'
   pull_request:
     branches:
       - main
@@ -14,12 +14,7 @@ on:
 jobs:
   HelloGrants-Build:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
+    name: HelloGrants Build Job
     steps:
       - run: echo "Job triggered by ${{ github.event_name }}"
       - uses: actions/checkout@v3
