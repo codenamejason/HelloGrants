@@ -1,19 +1,19 @@
-name: HelloGrants Build
+name: HelloGrants
 run-name: ${{ github.actor }} just pushed some code 🚀
 on:
   push:
-    branches: [$default-branch]
+    branches:
+      - 'feature/**'
+      - 'fix/**'
   pull_request:
-    branches: [$default-branch]
+    branches:
+      - main
+      - develop
+      - 'release/**'
 jobs:
   HelloGrants-Build:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
+    name: HelloGrants Build Job
     steps:
       - run: echo "Job triggered by ${{ github.event_name }}"
       - uses: actions/checkout@v3
@@ -21,18 +21,6 @@ jobs:
 
       - run: bun install
       - run: bun run build
-      # - run: npm test
+      # - run: bun test
 
       - run: echo "Build job status -> ${{ job.status }}"
-# jobs:
-#   HelloGrants-Build:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-#       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-#       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-#       - name: Check out repository code
-#         uses: actions/checkout@v4
-#       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-#       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-#       - run: echo "Build job status -> ${{ job.status }}"
