@@ -1,11 +1,11 @@
 # HelloGrants
 
-![CI](https://github.com/allo-protocol/actions/workflows/WORKFLOW-FILE/badge.svg)
+![CI](https://github.com/codenamejason/HelloGrants/workflows/HelloGrants/badge.svg)
 
 
 ## Getting Started
 
-This is a grants application for Allo. It is built using
+This is a starter kit to build a grant appliation with Allo Protocol. It is built using
 [Spec](https://spec.dev), [Bun](https://bun.sh/) and
 [Next.js](https://nextjs.org/).
 
@@ -13,20 +13,17 @@ This is a grants application for Allo. It is built using
 
 - [Node.js](https://nodejs.org/en/) (v18.x.x)
 - [Bun](https://bun.sh/) (v1.x)
+
+You can get a free [Pinata](https://pinata.cloud/) account to use for IPFS.
+
 - Add env vars:
 
 Required
 ```
-
-
 NEXT_PUBLIC_IPFS_READ_GATEWAY=
 NEXT_PUBLIC_PINATA_JWT=
 NEXT_PUBLIC_IPFS_READ_GATEWAY=
 NEXT_PUBLIC_IPFS_WRITE_GATEWAY=
-```
-
-Optional
-```
 NEXT_PUBLIC_ENVIRONMENT=
 ALCHEMY_ID=
 INFURA_ID=
