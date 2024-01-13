@@ -3,7 +3,6 @@ run-name: ${{ github.actor }} just pushed some code 🚀
 on:
   push:
     branches:
-      - develop
       - 'feature/**'
       - 'fix/**'
   pull_request:
